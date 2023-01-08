@@ -1,0 +1,27 @@
+<div nz-row class="nav-menu" nz-menu nzTheme="light" nzMode="horizontal">
+    <div nz-col nzSpan="4">
+        <div nz-row nzJustify="start">
+            <li nz-menu-item>
+                <a class="text-decoration-none" href="/home"> Happy Trade </a>
+            </li>
+        </div>
+    </div>
+
+    <div nz-col nzSpan="16">
+        <ul nz-menu nzMode="horizontal">
+            <li nz-menu-item *ngFor="let navConfig of navConfigList">
+                <a [href]="navConfig.path">{{ navConfig.title }}</a>
+            </li>
+        </ul>
+    </div>
+
+    <div nz-col nzSpan="4">
+        <div nz-row nzJustify="end">
+            <ul nz-submenu [nzTitle]="profileAvt"></ul>
+        </div>
+    </div>
+</div>
+
+<ng-template #profileAvt>
+    <nz-avatar nzSize="large" nzText="S"></nz-avatar>
+</ng-template>
