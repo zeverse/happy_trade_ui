@@ -1,1 +1,22 @@
-CC
+<nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="searchBtn">
+	<input type="text" nz-input placeholder="input search text" />
+</nz-input-group>
+
+<nz-space>
+	<ng-template *ngFor="let dish of dishes$ | async">
+		<nz-card nzHoverable [nzCover]="dishPreview">
+			<nz-card-meta
+				[nzTitle]="dish.name"
+				[nzDescription]="dish.price.toString()"
+			></nz-card-meta>
+		</nz-card>
+
+		<ng-template #dishPreview>
+			<img alt="Dish Preview" [src]="dish.photo" />
+		</ng-template>
+	</ng-template>
+</nz-space>
+
+<ng-template #searchBtn>
+	<button nz-button nzType="primary" nzSize="large" nzSearch (click)="onSearch()">Search</button>
+</ng-template>
